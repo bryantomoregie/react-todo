@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import SignUp from './Components/SignUp'
+import TaskMaster from './Components/TaskMaster'
+import './Style/App.css'
 
 function App() {
+const [name, setName] = useState()
+
+
+function handleSignUp(firstName, lastName){
+    const userName = lastName != null ? firstName + " " + lastName : firstName
+    return setName(userName)   
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    name ?
+    <TaskMaster name={name}/>
+    :
+    <div className="signup-container">
+      <SignUp handleSignUp={handleSignUp}/>
     </div>
+   
   );
 }
 
+
+
 export default App;
+
+/*
+Component for the sign in
+Component for the TaskMaster
+Component for Task
+
+Form, state saved in App, named passed to Sign in
+*/

@@ -1,0 +1,7 @@
+.task-card{
+    background-color: lightgrey;
+    min-width: 300px;
+    display: grid;
+    place-items: center;
+    margin: 30px;
+}
